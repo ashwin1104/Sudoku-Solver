@@ -1,7 +1,7 @@
 #include "catch.hpp"
-#include "main.cpp"
+#include "SudokuSolver.h"
 
-SudokuSolver sudoku;
+SudokuSolver sudoku = SudokuSolver();
 
 TEST_CASE("Problem statement strings that are empty will return the empty string") {
     std::string temp_problem = "";

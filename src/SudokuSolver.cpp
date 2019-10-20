@@ -58,7 +58,7 @@ bool SudokuSolver::FindUnassignedLocation(std::string sudoku_solution, int &boar
 
 bool SudokuSolver::UsedInRow(std::string sudoku_solution, int row, int num) {
     int temp_char_index = 0;
-    for (int col = 0; col < ; col++) {
+    for (int col = 0; col < kNumCharsInRow; col++) {
         temp_char_index = (kNumCharsInRow * row) + col;
         if (sudoku_solution[temp_char_index] == num) {
             return true;

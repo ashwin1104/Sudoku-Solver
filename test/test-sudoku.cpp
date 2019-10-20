@@ -3,6 +3,10 @@
 
 SudokuSolver sudoku;
 
+TEST_CASE("Problem statement strings that are empty will return the empty string") {
+    std::string temp_problem = "";
+    REQUIRE(0 == sudoku.Solve(temp_problem).length());
+}
 TEST_CASE("Problem statement strings with less than the correct amount of characters will return the same string") {
     std::string temp_problem = "_";
     REQUIRE(temp_problem == sudoku.Solve(temp_problem));

@@ -2,20 +2,8 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include "SudokuSolver.h"
 
-class SudokuSolver {
-private:
-    std::string initial_puzzle;
-public:
-    // required constructor
-    SudokuSolver() {
-
-    }
-    std::string Solve(std::string &sudoku_problem) {
-        std::string sudoku_solution = sudoku_problem;
-        return sudoku_solution;
-    }
-};
 int main(int argc, char *argv[]) {
     SudokuSolver sudoku;
     std::ifstream infile("thefile.txt");

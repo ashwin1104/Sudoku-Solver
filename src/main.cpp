@@ -1,16 +1,34 @@
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
 
-/*
- * Write your sudoku program! Do not put all of your code in main.cpp;
- * make new files as necessary.
- *
- * Make sure that the correct .cpp and .h/.hpp files are available to the
- * sudoku and testing executables as necessary.
- * CLion should prompt you to add the right info to the CMakeLists.txt
- * whenever you create new .cpp files.
- */
+class SudokuSolver {
+private:
+    std::string initial_puzzle;
+public:
+    // required constructor
+    SudokuSolver() {
 
+    }
+    std::string Solve(std::string &sudoku_problem) {
+        std::string sudoku_solution = sudoku_problem;
+        return sudoku_solution;
+    }
+};
 int main(int argc, char *argv[]) {
-    std::cout << "Hello, World!" << std::endl;
-    return EXIT_SUCCESS;
+    SudokuSolver sudoku;
+    std::ifstream infile("thefile.txt");
+    std::string line;
+    //https://cpppatterns.com/patterns/read-line-by-line.html
+    while (std::getline(infile, line))
+    {
+        std::istringstream stream(line);
+        std::string temp_sudoku_unsolved;
+        if (!(stream >> temp_sudoku_unsolved)) {
+            break;
+        }
+        std::string sudoku_solution = sudoku.Solve(temp_sudoku_unsolved);
+        std::cout << sudoku_solution << std::endl;
+    }
 }

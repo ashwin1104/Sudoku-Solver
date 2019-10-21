@@ -32,9 +32,10 @@ bool FileStream::IsFileValid(const std::string &file_name, std::string line) {
     return true;
 }
 
-void FileStream::SolveAllProblems(std::ifstream &infile, std::string line) {
+std::string FileStream::SolveAllProblems(std::ifstream &infile, std::string line) {
     std::getline(infile, line);
     SudokuSolver sudoku = SudokuSolver();
+    std::string raw_output;
     while (std::getline(infile, line)) {
         if (line.empty()) {
             break;
@@ -42,8 +43,14 @@ void FileStream::SolveAllProblems(std::ifstream &infile, std::string line) {
         std::string temp_solution = sudoku.Solve(line);
         FileStream temp_stream = FileStream(temp_solution);
         std::cout << temp_stream << std::endl;
+        raw_output += temp_stream.game_board_;
     }
     infile.close();
+    return raw_output;
+}
+
+std::string FileStream::GetCurrentFile(){
+    return user_file_;
 }
 
 

@@ -28,7 +28,7 @@ class FileStream {
 
         // Outputs solution for each problem statement in the given file
         //https://cpppatterns.com/patterns/read-line-by-line.html
-        static void SolveAllProblems(std::ifstream &infile, std::string line);
+        static std::string SolveAllProblems(std::ifstream &infile, std::string line);
 
         // istream override to read in user's file path
         //https://medium.com/@nonuruzun/overloading-input-output-operators-in-c-a2a74c5dda8a
@@ -61,4 +61,5 @@ class FileStream {
             out << "+-----------------------+" << std::endl;
             return out;
         }
+        std::string GetCurrentFile();
 };

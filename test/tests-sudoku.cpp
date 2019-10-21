@@ -5,7 +5,7 @@ SudokuSolver sudoku = SudokuSolver();
 
 // SudokuSolver IsValid method tests
 TEST_CASE("Problem statement strings that are empty are invalid") {
-    std::string temp_problem = "";
+    std::string temp_problem;
     REQUIRE(!sudoku.IsValid(temp_problem));
 }
 TEST_CASE("Problem statement strings with length less than the correct amount of characters are invalid") {

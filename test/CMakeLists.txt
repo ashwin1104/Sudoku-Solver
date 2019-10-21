@@ -1,6 +1,6 @@
 # The .cpp files for this executable
 add_executable(tests
-        tests-main.cpp tests-sudoku.cpp ../src/SudokuSolver.cpp tests-parsing.cpp)
+        tests-main.cpp tests-sudoku.cpp ../src/SudokuSolver.cpp tests-parsing.cpp ../src/FileStream.cpp)
 
 # Directories to search for header files
 target_include_directories(tests PRIVATE

@@ -2,11 +2,13 @@
 #define SUDOKU_SUDOKUSOLVER_H
 
 #endif //SUDOKU_SUDOKUSOLVER_H
+#include <iostream>
 #include <string>
 
 //https://stackoverflow.com/questions/19022739/sudoku-solver-in-c
 class SudokuSolver {
     private:
+        std::string final_solution_;
         const std::string kLegalNumbers = "123456789";
         const int kAcceptableSudokuSize = 81;
         const int kNumCharsInRow = 9;
@@ -34,4 +36,31 @@ class SudokuSolver {
 
         // Returns whether any assigned entry within the specified 3x3 box matches the given number
         bool UsedInBox(std::string &sudoku_solution, int box_start_row, int box_start_col, int num);
+
+        // std::cout solution in pretty format
+        void OutputSolution();
+
+        // ostream override to output the solved or unsolved sudoku puzzle
+        friend std::ostream &operator<<(std::ostream &out, SudokuSolver &sudoku) {
+            std::string temp_line;
+            out << "+-----------------------+" << std::endl;
+            for (int i = 0; i < sudoku.final_solution_.length(); i++) {
+                if (i % 3 == 0) {
+                    temp_line += "| ";
+                }
+                if (i != 0 && i % 9 == 0) {
+                    out << temp_line << std::endl;
+                    temp_line = "| ";
+                }
+                if (i != 0 && i % 27 == 0) {
+                    out << "+-----------------------+" << std::endl;
+                }
+                temp_line += sudoku.final_solution_[i];
+                temp_line += " ";
+            }
+            temp_line += "|";
+            out << temp_line << std::endl;
+            out << "+-----------------------+" << std::endl;
+            return out;
+        }
 };

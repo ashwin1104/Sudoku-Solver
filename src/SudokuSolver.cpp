@@ -30,6 +30,7 @@ bool SudokuSolver::SolveSudoku(std::string &sudoku_solution) {
     int last_num = 9;
 
     if (!FindUnassignedLocation(sudoku_solution, board_index)) {
+        final_solution_ = sudoku_solution;
         return true;
     }
     for (int num = first_num; num <= last_num; num++) {
@@ -116,4 +117,8 @@ bool SudokuSolver::UsedInBox(std::string &sudoku_solution, int box_start_row, in
         }
     }
     return false;
+}
+
+void SudokuSolver::OutputSolution() {
+    std::cout << *this << std::endl;
 }

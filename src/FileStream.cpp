@@ -41,9 +41,8 @@ std::string FileStream::SolveAllProblems(std::ifstream &infile, std::string line
             break;
         }
         std::string temp_solution = sudoku.Solve(line);
-        FileStream temp_stream = FileStream(temp_solution);
-        std::cout << temp_stream << std::endl;
-        raw_output += temp_stream.game_board_;
+        sudoku.OutputSolution();
+        raw_output += temp_solution;
     }
     infile.close();
     return raw_output;

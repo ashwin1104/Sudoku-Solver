@@ -55,11 +55,10 @@ TEST_CASE("The overloaded ofstream will convert the raw solution to a pretty boa
     SudokuSolver sudoku = SudokuSolver();
     std::string board = "85___24__72______9__4_________1_7__23_5___9___4___________8__7__17__________36_4_";
     std::string temp_solution = sudoku.Solve(board);
-    FileStream temp_stream = FileStream(temp_solution);
 
     std::ofstream myfile;
     myfile.open("output.txt");
-    myfile << temp_stream;
+    myfile << sudoku;
     myfile.close();
 
     std::string line;
